@@ -1,0 +1,616 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" href="images/title-img.png">
+    <link rel="stylesheet" href="css/bootstrap.css">
+     <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+     <script src="js/bootstrapV4.js"></script>
+     <script src="js/all.js"></script>
+    <script src="js/script.js"></script>
+    
+    <script src="js/main.js"></script>
+     <script src="js/jquery.dataTables.js"></script> 
+      <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/jquery.dataTables.css">
+    
+    <link rel="stylesheet" href="css/styles.css">
+    
+     <link rel="stylesheet" href="css/styles2.css">
+    <title>Admin Dashboard</title> 
+    <link href="css/reset.css" rel="stylesheet" type="text/css">
+<link href="http://cdnjs.cloudflare.com/ajax/libs/foundation/5.3.3/css/foundation.min.css" rel="stylesheet" type="text/css">
+
+  </head>
+  
+  <body>
+  
+ <div id="body" class="overlay">
+   
+  <!-- navbar -->
+    <nav class="navbar navbar-expand-md navbar-light">
+      <button class="navbar-toggler ml-auto mb-2 bg-light" type="button" data-toggle="collapse" data-target="#myNavbar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <div class="container-fluid">
+          <div class="row">
+          
+          
+            <!-- sidebar -->
+            <div class="col-xl-2 col-lg-3 col-md-4 sidebar fixed-top">
+            <a href="#" class="navbar-brand text-white d-block mx-auto text-center py-3 mb-4 bottom-border">Web3 2018</a>
+              <div class="bottom-border pb-3">
+                <img src="images/mayo.jpeg" width="50" class="rounded-circle mr-3">
+                <a href="#" class="text-white">Admin</a>
+              </div>
+              <ul class="navbar-nav flex-column mt-4">
+             
+                <li class="nav-item"><a href="#" class="nav-link text-white p-3 mb-2 current"><i class="fas fa-home text-light fa-lg mr-3"></i>Dashboard</a></li>
+                <li class="nav-item"><a href="#" class="nav-link text-white p-3 mb-2 sidebar-link"><i class="fas fa-user text-light fa-lg mr-3"></i>Profile</a></li>
+                <li class="nav-item"><a href="#" class="nav-link text-white p-3 mb-2 sidebar-link"><i class="fas fa-shopping-cart text-light fa-lg mr-3"></i>Sales</a></li>
+                <li class="nav-item"><a href="#" class="nav-link text-white p-3 mb-2 sidebar-link"><i class="fas fa-chart-line text-light fa-lg mr-3"></i>Analytics</a></li>
+                <li class="nav-item"><a href="#" class="nav-link text-white p-3 mb-2 sidebar-link"><i class="fas fa-chart-bar text-light fa-lg mr-3"></i>Charts</a></li>
+                <li class="nav-item"><a href="#" class="nav-link text-white p-3 mb-2 sidebar-link"><i class="fas fa-table text-light fa-lg mr-3"></i>Tables</a></li>
+                <li class="nav-item"><a href="#" class="nav-link text-white p-3 mb-2 sidebar-link"><i class="fas fa-wrench text-light fa-lg mr-3"></i>Settings</a></li>
+                <li class="nav-item"><a href="#" class="nav-link text-white p-3 mb-2 sidebar-link"><i class="fas fa-file-alt text-light fa-lg mr-3"></i>Documentation</a></li>
+              </ul>
+            </div>
+            <!-- end of sidebar -->
+
+            <!-- top-nav -->
+            <div class="col-xl-10 col-lg-9 col-md-8 ml-auto bg-dark fixed-top py-2 top-navbar">
+              <div class="row align-items-center">
+                <div class="col-md-4">
+                  <h4 class="text-light text-uppercase mb-0">Dashboard</h4>
+                 
+                </div>
+
+                <div class="col-md-8">
+                  <ul class="navbar-nav">
+                    <li class="nav-item ml-md-auto"><a href="#" id="logout" class="nav-link" data-toggle="modal" data-target="#sign-out"><i class="fas fa-sign-out-alt text-danger fa-lg"></i></a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <!-- end of top-nav -->
+          </div>
+        </div>
+      </div>
+    </nav>
+    <!-- end of navbar -->
+
+
+
+    <!-- cards -->
+    <section>
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-xl-10 col-lg-9 col-md-8 ml-auto">
+            <div class="row pt-md-5 mt-md-3 mb-5">
+              <div class="col-xl-3 col-sm-6 p-2">
+                <div class="card card-common">
+                  <div class="card-body">
+                    <div class="d-flex justify-content-between">
+                      <i class="fas fa-shopping-cart fa-3x text-warning"></i>
+                      <div class="text-right text-secondary" id="totalUsersVal">
+                       <h5 >Total Users</h5>
+                        <h3 id="userHeader"></h3>
+                       <!--  	<h3 id=""></h3>-->
+                       
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card-footer text-secondary">
+                    <i class="fas fa-sync mr-3"></i>
+                    <span>Updated Now</span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xl-3 col-sm-6 p-2">
+                <div class="card card-common">
+                  <div class="card-body">
+                    <div class="d-flex justify-content-between">
+                      <i class="fas fa-money-bill-alt fa-3x text-success"></i>
+                      <div class="text-right text-secondary">
+                       <h5>Total Products</h5>
+                        <h3 id="totalProductVal"></h3>
+                       
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card-footer text-secondary">
+                    <i class="fas fa-sync mr-3"></i>
+                    <span>Updated Now</span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xl-3 col-sm-6 p-2">
+                <div class="card card-common">
+                  <div class="card-body">
+                    <div class="d-flex justify-content-between">
+                      <i class="fas fa-users fa-3x text-info"></i>
+                      <div class="text-right text-secondary">
+                        <h5>Live User</h5>
+                        <h3>1</h3>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card-footer text-secondary">
+                    <i class="fas fa-sync mr-3"></i>
+                    <span>Updated Now</span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xl-3 col-sm-6 p-2">
+                <div class="card card-common">
+                  <div class="card-body">
+                    <div class="d-flex justify-content-between">
+                      <i class="fas fa-chart-line fa-3x text-danger"></i>
+                      <div class="text-right text-secondary">
+                        <h5>Visitors</h5>
+                        <h3>2,000</h3>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card-footer text-secondary">
+                    <i class="fas fa-sync mr-3"></i>
+                    <span>Updated Now</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- end of cards -->
+
+    <!-- tables -->
+    <section>
+      <div class="container-fluid">
+        <div class="row mb-5">
+          <div class="col-xl-10 col-lg-9 col-md-8 ml-auto">
+            <div class="row align-items-center">
+              <div class="col-xl-6 col-12 mb-4 mb-xl-0">
+              <div><h3 id ="userlogged"></h3></div> 
+                <h3 class="text-muted text-center mb-3">Users Table</h3>
+                <table id="table_idu" class="table table-striped bg-light text-center">
+                  <thead>
+                    <tr class="text-muted">
+                      <th>#</th>
+                      <th>Name</th>
+                      <th>UserName</th>  
+                      <th>Edit</th>
+                    </tr>
+                  </thead>
+                  
+                    <tbody id="table_bodyu">
+                     </tbody>
+                  
+                </table>
+
+                <!-- pagination -->
+                <nav>
+                  <ul class="pagination justify-content-center">
+                    <li class="page-item">
+                      <a href="#" class="page-link py-2 px-3">
+                        <span>&laquo;</span>
+                      </a>
+                    </li>
+                    <li class="page-item active">
+                      <a href="#" class="page-link py-2 px-3">
+                        1
+                      </a>
+                    </li>
+                    <li class="page-item">
+                      <a href="#" class="page-link py-2 px-3">
+                        2
+                      </a>
+                    </li>
+                    <li class="page-item">
+                      <a href="#" class="page-link py-2 px-3">
+                        3
+                      </a>
+                    </li>
+                    <li class="page-item">
+                      <a href="#" class="page-link py-2 px-3">
+                        <span>&raquo;</span>
+                      </a>
+                    </li>
+                  </ul>
+                </nav>
+                <!-- end of pagination -->
+
+              </div>
+              <div class="col-xl-6 col-12">
+                <h3 class="text-muted text-center mb-3">Book</h3>
+                
+                <table id="table_idp" class="table  text-center">
+                  <thead>
+                    <tr class="text-muted">
+                      <th>#</th>
+                       <th>Title</th>  
+                       <th>Author</th>  
+                        <th>Publisher</th>  
+                        <th>Price</th>
+                        <th>Edit</th> 
+                    </tr>
+                  </thead>
+                  <tbody id="table_body">
+                  </tbody>
+                </table>
+                 <!-- pagination -->
+                 <nav>
+                  <ul class="pagination justify-content-center">
+                    <li class="page-item">
+                      <a href="#" class="page-link py-2 px-3">
+                        <span>Previous</span>
+                      </a>
+                    </li>
+                    <li class="page-item active">
+                      <a href="#" class="page-link py-2 px-3">
+                        1
+                      </a>
+                    </li>
+                    <li class="page-item">
+                      <a href="#" class="page-link py-2 px-3">
+                        2
+                      </a>
+                    </li>
+                    <li class="page-item">
+                      <a href="#" class="page-link py-2 px-3">
+                        3
+                      </a>
+                    </li>
+                    <li class="page-item">
+                      <a href="#" class="page-link py-2 px-3">
+                        <span>Next</span>
+                      </a>
+                    </li>
+                  </ul>
+                </nav>
+                <!-- end of pagination -->
+              </div>
+              
+              
+              
+              
+              
+              
+              
+              <div class="col-xl-6 col-12">
+                <h3 class="text-muted text-center mb-3">Medical History</h3>
+                
+                <table id="table_idm" class="table  text-center">
+                  <thead>
+                    <tr class="text-muted">
+                      <th>#</th>
+                       <th>Date</th>  
+                       <th>InjuryType</th>  
+                        <th>Description</th>  
+                        
+                    </tr>
+                  </thead>
+                  <tbody id="table_bodym">
+                  </tbody>
+                </table>
+                 <!-- pagination -->
+                 <nav>
+                  <ul class="pagination justify-content-center">
+                    <li class="page-item">
+                      <a href="#" class="page-link py-2 px-3">
+                        <span>Previous</span>
+                      </a>
+                    </li>
+                    <li class="page-item active">
+                      <a href="#" class="page-link py-2 px-3">
+                        1
+                      </a>
+                    </li>
+                    <li class="page-item">
+                      <a href="#" class="page-link py-2 px-3">
+                        2
+                      </a>
+                    </li>
+                    <li class="page-item">
+                      <a href="#" class="page-link py-2 px-3">
+                        3
+                      </a>
+                    </li>
+                    <li class="page-item">
+                      <a href="#" class="page-link py-2 px-3">
+                        <span>Next</span>
+                      </a>
+                    </li>
+                  </ul>
+                </nav>
+                <!-- end of pagination -->
+              </div>
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- end of tables -->
+   
+    <!-- progress / task list -->
+    <section>
+ 
+    </section>
+    <!-- end of progress / task list -->
+
+    <!-- activities / quick post -->
+    <section>
+      
+    </section>
+    <!-- end of activities / quick post -->
+
+    <!-- footer -->
+    <footer>
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-xl-10 col-lg-9 col-md-8 ml-auto">
+            <div class="row border-top pt-3">
+              <div class="col-lg-6 text-center">
+                <ul class="list-inline">
+                  <li class="list-inline-item mr-2">
+                    <a href="#" class="text-dark">About</a>
+                  </li>
+                  <li class="list-inline-item mr-2">
+                    <a href="#" class="text-dark">Support</a>
+                  </li>
+                </ul>
+              </div>
+              <div class="col-lg-6 text-center">
+                <p>&copy; 2018 Copyright. Template adapted from CodeAndCreate - MG</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- end of footer -->
+    
+    
+        
+    <div class="modal fade" id="largeShoes" role="dialog">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">View Details</h4>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+          <div class="modal-body" id="modalBody">
+         <div class="wrap">
+        <div class="search">
+<!-- <input type="text" id="searchKey" class="searchTerm" placeholder="">
+<button type="submit" id="btnSearch" class="searchButton">Search</button> -->
+<button type="submit" id="btnAdd" class="addButton">New Book</button>
+</div>
+</div>
+<br>
+<div>
+                                    <!--   <div class="leftArea">
+                                               <ul id="mobileList" ></ul>
+                                              
+                                       </div> -->
+                                        
+                                        <div class="mainArea">
+
+                                                  <label>Id:</label>
+                                                  <input id="id" name="id" type="text" disabled />
+                                                  <div class="form-group">
+                                                  <label>Title:</label>
+                                                  <input type="text" id="name" name="name" />
+                                                  </div>
+                                                  <div class="form-group">
+                                                  <label>Year:</label>
+                                                  <input type="text" id="releaseyear" name="releaseyear"/>
+                                                  </div>
+                                                  <div class="form-group">
+
+                                                  <label>CHAPTERS:</label>
+                                                  <input type="text" id="modelNo" name="modelNo"/>
+                                                  </div>
+                                                  <div class="form-group">
+
+                                                   <label>Publisher:</label>
+                                                   <input type="text" id="company" name="company"/>
+                                                   </div>
+                                                    <div class="form-group">
+                                                   <label>Price:</label>
+                                                    <input type="text" id="price" name="price"/>
+                                                    </div>
+                                                    </div>
+                                                    
+                                                      <div class="rightArea">
+                                                  <img id="picture"  height="300"/>
+                                                  </div>
+                                                  <div class="form-group">
+                                                   <label>Notes:</label>
+                                                   <textarea id="description" name="description"></textarea>
+                                                   </div>
+
+                                                   <button type="submit" id="btnSave" class="saveButton">Save</button>
+                                                   
+                                                   <button type="submit" id="btnDelete" class="deleteButton" >Delete</button>
+
+</div>
+
+         
+         
+         
+            Press logout to leave
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-success" data-dismiss="modal">Stay Here</button>
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Logout</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- modal for crud operation of users -->
+    
+        <div class="modal fade" id="userModal" role="dialog">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">View Details</h4>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+          <div class="modal-body" id="modalBody">
+          <div class="wrap">
+                  
+                                      <!--   <div class="searchu">
+                                        <input type="text" id="searchKey" class="searchTerm" placeholder="">
+<button type="submit" id="btnSearchu" class="searchButtonu">Search</button> -->
+
+<button type="submit" id="btnAddu" class="addButton">New User</button>
+</div>
+
+<br>
+   
+           <div class="mainArea">
+                                                  <div class="form-group">
+                                                  <label></label>
+                                                  <input id="uid" name="uid" type="text" disabled />
+                                                  </div>
+                                                  <div class="form-group">
+                                                  <label>Name:</label>
+                                                  <input type="text" id="nameu" name="nameu" /></div>
+                                                  <div class="form-group">
+                                                  <label>Username:</label>
+                                                  <input type="text" id="username" name="username"/></div>
+                                                  
+                                                  <div class="form-group">
+                                                  <label>Password:</label>
+                                                  <input type="password" id="password" name="password"/>
+                                                  </div>
+                                                 
+                                                  
+                                                   <div class="leftArea">
+                                                  <img id="profilepic"  height="200" />
+                                                  </div>
+                                                  
+             <button type="button" class="btn btn-success" id="btnSaveu" >Save</button>
+            <button type="button" class="btn btn-danger" id="btnDeleteu">Delete</button>
+            </div>
+            </div>
+            </div> 
+                     <div class="modal-footer">
+                       <button type="button" class="btn btn-success" data-dismiss="modal">Stay Here</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Logout</button>
+                     </div>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+    
+  
+</div>
+ 
+ 
+ 
+ 
+ 
+     <!-- modal -->
+    <!-- class="modal fade"  -->
+    
+    <div  class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header" style="padding:35px 50px;">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4><span class="glyphicon glyphicon-lock"></span> Login</h4>
+        </div>
+        <div class="imgcontainer">
+   <!--  <img src="images/login.png" alt="Avatar" class="avatar"> -->
+  
+        
+           <div class="modal-body">
+          <!--  method="post"  onsubmit="return validateForm()" -->
+       
+       <form class="form-control" role="form" id="loginform">
+          <div class="form-group">
+            <label class="control-label col-md-3" for="usname">Username:</label>
+            <div class="col-md-9">
+              <input type="text"  id="usname" name="usname" placeholder="Enter username" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label col-md-3" for="psw">Password:</label>
+            <div class="col-md-9">
+              <input type="text"  id="psw" name="psw" placeholder="Enter the password" >
+            </div>
+           </div>
+             <button type="button" id="login" class="btn btn-success" data-dismiss >Login</button> 
+           <!--   <button type="button" id="logout" class="btn btn-success" data-dismiss >Logout</button>  -->
+         </form>
+        </div>
+       
+        <div class="modal-footer">
+          <button type="submit" id="cancellogin" class="btn btn-danger btn-default pull-left" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span>Cancel</button>
+          
+        </div>
+      </div>
+      
+    </div>
+</div>  
+</div>
+   
+
+    
+   
+    
+    
+    
+    
+    <!-- end of modal -->
+ 
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+  </body>
+</html>
+
+
